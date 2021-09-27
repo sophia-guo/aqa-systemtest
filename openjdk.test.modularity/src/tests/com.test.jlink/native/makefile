@@ -95,8 +95,8 @@ ifeq ($(OS),osx)
     LFLAGS=-dynamiclib -o
     IFLAGS=-I. -I$(HEADERDIR) -I$(JAVA_HOME)/include/darwin -I$(JAVA_HOME)/include -I/usr/include
     ifeq ($(ARCH),arm64)
-        CFLAGS=-D_JNI_IMPLEMENTATION_ -D_TRIVIAL_AGENT -O0 -g3 -pedantic -c -Wall -std=c99 -arch arm64 -fPIC -fno-omit-frame-pointer -static-libgcc -o $(OBJDIR)/$(SRC)$(OSUFFIX)
-        LFLAGS=-shared
+        CFLAGS+=-arch arm64
+        LFLAGS=-arch arm64 -dynamiclib -o
     endif
 endif
 
